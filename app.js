@@ -4,14 +4,16 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var firebase = require('firebase');
 
-var app = firebase.initializeApp({
+var config = {
     apiKey: '<your-api-key>',
     authDomain: '<your-auth-domain>',
     databaseURL: '<your-database-url>',
-    projectId: '<your-cloud-firestore-project>',
+    projectId: 'firstproject-f2f04',
     storageBucket: '<your-storage-bucket>',
     messagingSenderId: '<your-sender-id>'
-  });
+  };
+
+  firebase.initializeApp(config)
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
