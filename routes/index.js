@@ -35,4 +35,36 @@ router.post('/', function (req, res) {
 });
 
 
+//Update existing instance
+router.put('/:username', function (req, res) {
+  var userName = req.params.username;
+  var name = req.body.name;
+  var age = req.body.age;
+
+  var referencePath = '/Users/'+userName+'/';
+  var userReference = firebase.database().ref(referencePath);
+  userReference.update({Name: name, Age: age}, function(error) {
+    if (error) {
+      res.send("Data could not be updated." + error);
+    } else {
+      res.send("Data updated successfully.");
+    }
+  });
+});
+
+//Delete an instance
+router.delete('/:username', function (req, res) {
+  var userName = req.params.username;
+  var referencePath = '/Users/'+userName+'/';
+  var userReference = firebase.database().ref(referencePath);
+  userReference.remove((error)=>{
+    if (error) {
+      res.send("Data could not be deleted." + error);
+    } else {
+      res.send("Data deleted successfully.");
+    }
+  })
+});
+
+
 module.exports = router;
