@@ -1,5 +1,7 @@
 # firebase-express (API)
+
 #### instalasi
-* ```bash 
-express <file.Name> --no-view
+
+```bash 
+$ express <file.Name> --no-view
 ```
