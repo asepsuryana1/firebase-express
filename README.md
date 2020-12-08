@@ -2,6 +2,5 @@
 
 #### instalasi
 
-* ```bash 
-  $ express <file.Name> --no-view
-  ```
+* ```$ express <file.Name> --no-view ```
+
