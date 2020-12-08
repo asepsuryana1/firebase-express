@@ -96,4 +96,18 @@ router.put('/:username', function (req, res) {
   });
 });
 ```
-
+### Router DELETE
+```js
+router.delete('/:username', function (req, res) {
+  var userName = req.params.username;
+  var referencePath = '/Users/'+userName+'/';
+  var userReference = firebase.database().ref(referencePath);
+  userReference.remove((error)=>{
+    if (error) {
+      res.send("Data could not be deleted." + error);
+    } else {
+      res.send("Data deleted successfully.");
+    }
+  })
+});
+```
