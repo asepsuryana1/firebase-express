@@ -77,3 +77,23 @@ router.post('/', function (req, res) {
 |name         |superman     |
 |age          |12           |
 
+### Router PUT
+```js
+//Update existing instance
+router.put('/:username', function (req, res) {
+  var userName = req.params.username;
+  var name = req.body.name;
+  var age = req.body.age;
+
+  var referencePath = '/Users/'+userName+'/';
+  var userReference = firebase.database().ref(referencePath);
+  userReference.update({Name: name, Age: age}, function(error) {
+    if (error) {
+      res.send("Data could not be updated." + error);
+    } else {
+      res.send("Data updated successfully.");
+    }
+  });
+});
+```
+
