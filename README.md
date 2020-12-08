@@ -2,5 +2,11 @@
 
 #### instalasi
 
-* ```$ express <file.Name> --no-view ```
+```bash
+$ express <file.Name> --no-view 
+$ npm install
+$ npm install nodemon -D
+$ npm install firebase -S
+$ npm install firebase-admin -S
+```
 
